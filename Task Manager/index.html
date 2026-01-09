@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#0b74de" />
+    <title>Offline Task Manager</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+    <header>
+        <h1>My Daily Tasks</h1>
+    </header>
+
+    <main>
+        <form id="taskForm">
+            <input type="text" id="title" placeholder="Task title" required />
+            <input type="datetime-local" id="dueDate" required />
+            <button type="submit">Add Task</button>
+        </form>
+
+        <ul id="taskList"></ul>
+    </main>
+
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('service-worker.js');
+        }
+    </script>
+</body>
+
+</html>
